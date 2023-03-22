@@ -1,7 +1,0 @@
-nav ul li ul {
-    display: none;
-}
-nav ul li.has-submenu:hover ul {
-    display: block;
-}
-  
