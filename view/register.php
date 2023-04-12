@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -84,7 +85,7 @@
                     <!-- Email input -->
                     <div class=" form-floating mb-4">
                       <input type="email" id="formInput" class="form-control" placeholder="name@example.com"/>
-                      <label class="" for="formInput">Địa chỉ Email</label>
+                      <label class="" for="formInput">Email</label>
                     </div>
                   
                     <!-- Password input -->
@@ -101,7 +102,7 @@
                   
                     <!-- Checkbox -->
                     <div class="form-check mt-3 mb-4">
-                        <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+                        <input class="form-check-input" type="checkbox" value="" id="form2Example31" />
                         <label class="form-check-label" for="form2Example31"> Tôi đã đọc và đồng ý với các chính sách bảo mật và điều khoản dịch vụ. </label>
                     </div>
                   
@@ -127,7 +128,7 @@
                           </button>
                         </div>
 
-                        <span class="mt-4 mb-5 fw-bold"> <a href="sign_in.html" class="text-dark fw-bold text-hover">Đã có tài khoản? Đăng nhập?</a></span>
+                        <span class="mt-4 mb-5 fw-bold"> <a href="sign_in.php" class="text-dark fw-bold text-hover">Đã có tài khoản? Đăng nhập?</a></span>
                       </div>
                     </div>
                   </form>

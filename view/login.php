@@ -1,3 +1,21 @@
+<?php
+  session_start();
+  ob_start();
+  include "../model/connectdb.php";
+  include "../model/user.php";
+
+  if((isset($_POST['login']))&&($_POST['login'])){
+    $user=$_POST['user'];
+    $pass=$_POST['pass'];
+    $role=checkuser($user,$pass);
+    $_SESSION['role']=$role;
+    if($role==1) header('location: indexs.php');
+    else{
+      $txt_erro="Tài khoản hoặc Mật khẩu không tồn tại";
+    } 
+    // header('location: login.php');
+  }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -72,16 +90,16 @@
             <p class="fs-1 mb-0 text-center">Logitech</p>
             <p class="text-center">Đăng nhập bằng tài khoản của bạn.</p>
             <div class="d-flex justify-content-center">
-                <form class="w-50" style="min-width: fit-content;">
+                <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" class="w-50" style="min-width: fit-content;">
                     <!-- Email input -->
                     <div class=" form-floating mb-4">
-                      <input type="email" id="formInput" class="form-control" placeholder="name@example.com"/>
-                      <label class="" for="formInput">Địa chỉ Email</label>
+                      <input type="text" id="formInput" name="user" class="form-control" placeholder="user"/>
+                      <label class="" for="formInput">Tài khoản</label>
                     </div>
                   
                     <!-- Password input -->
                     <div class="form-floating mb-4">
-                      <input type="" id="formPassword" class="form-control" placeholder="password"/>
+                      <input type="" id="formPassword" name="pass" class="form-control" placeholder="password"/>
                       <label class="" for="formPassword">Mật khẩu</label>
                     </div>
                   
@@ -102,11 +120,16 @@
                     </div>
                   
                     <!-- Submit button -->
-                    <button type="submit" class="btn btn-dark w-100 mb-4 fw-bold">ĐĂNG NHẬP</button>
-                  
+                    <input type="submit" name="login" value='ĐĂNG NHẬP' class="btn btn-dark w-100 mb-4 fw-bold"/>
+                    <?php
+                      if(isset($txt_erro) && ($txt_erro!='')){
+                        echo "<font color='red'>".$txt_erro."</font>";
+                      }
+                    ?>
+
                     <!-- Register buttons -->
-                    <div class="text-center">
-                      <p>Chưa có tài khoản? <a href="sign_up.html" class="text-dark fw-bold text-hover">Đăng ký ngay</a></p>
+                    <div class="text-center mt-3">
+                      <p>Chưa có tài khoản? <a href="register.php" class="text-dark fw-bold text-hover">Đăng ký ngay</a></p>
                       <div class="separator">
                         <span class="text-muted text-center px-2 separator-text">HOẶC</span>
                       </div>
